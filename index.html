@@ -4,15 +4,22 @@
   <meta charset="UTF-8">
   <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <link rel="stylesheet" href="./style.css">
   <title>Аренда яхт</title>
 </head>
 <body>
 <div id="root"></div>
-<script>
+<script type="text/babel">
   const rootElement = document.getElementById('root');
   const root = ReactDOM.createRoot(rootElement);
-  root.render('Реакт подключён!');
+  root.render(<App/>);
+
+    function App() {
+      return(
+      <h1>Аренда яхты</h1>
+      );
+    }
 </script>
 </body>
 </html>
