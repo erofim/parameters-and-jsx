@@ -2,9 +2,17 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <link rel="stylesheet" href="./style.css">
   <title>Аренда яхт</title>
 </head>
 <body>
+<div id="root"></div>
+<script>
+  const rootElement = document.getElementById('root');
+  const root = ReactDOM.createRoot(rootElement);
+  root.render('Реакт подключён!');
+</script>
 </body>
 </html>
