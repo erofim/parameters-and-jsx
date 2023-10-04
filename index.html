@@ -18,9 +18,19 @@
   function App() {
     const name = 'Катер Meridian 401';
     const description = 'Яхта 401 длиной 12.5 метров и шириной 4.2 метра';
+
     const img = 'img/photo-card-1.jpg';
     const price = 15000;
-    const formattedPrice = `${price.toLocaleString()} ₽/час`
+
+    const formattedPrice = `${price.toLocaleString()} ₽/час`;
+    const features = [
+      '3 каюты',
+      '4 спальных места',
+      'аудиосистема'
+    ];
+    const featuresList = features.map((feature) => (
+      <li>{feature}</li>
+    ))
     return (
       <section className="rent">
         <ul className="cards">
@@ -30,9 +40,7 @@
               <h3 className="card-title">{name}</h3>
               <p className="card-description">{description}</p>
               <ul className="card-features">
-                <li>2 каюты</li>
-                <li>4 спальных места</li>
-                <li>аудиосистема, кондиционер</li>
+                {featuresList}
               </ul>
             </div>
             <p className="card-price">
