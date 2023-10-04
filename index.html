@@ -14,7 +14,7 @@
 <script type="text/babel">
   const rootElement = document.getElementById('root');
   const root = ReactDOM.createRoot(rootElement);
-  root.render(<App cardData={cardData}/>);
+  root.render(<App cards={cards}/>);
 
   function Card({cardData}) {
     const formattedPrice = `${cardData.price.toLocaleString()} ₽/час`;
@@ -39,13 +39,13 @@
     );
   }
 
-  function App({cardData}) {
+  function App({cards}) {
+    const [firstCardData,secondCardData] = cards;
     return (
       <section className="rent">
         <ul className="cards">
-          <Card cardData={cardData}/>
-          <Card cardData={cardData}/>
-          <Card cardData={cardData}/>
+          <Card cardData={firstCardData}/>
+          <Card cardData={secondCardData}/>
         </ul>
       </section>
     );
