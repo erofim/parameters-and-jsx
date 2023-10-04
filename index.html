@@ -19,6 +19,8 @@
     const name = 'Катер Meridian 401';
     const description = 'Яхта 401 длиной 12.5 метров и шириной 4.2 метра';
     const img = 'img/photo-card-1.jpg';
+    const price = 15000;
+    const formattedPrice = `${price.toLocaleString()} ₽/час`
     return (
       <section className="rent">
         <ul className="cards">
@@ -35,7 +37,7 @@
             </div>
             <p className="card-price">
               <span className="card-price-name">Цена:</span>
-              <span className="card-price-value">14 000 ₽/час</span>
+              <span className="card-price-value">{formattedPrice}</span>
             </p>
           </li>
         </ul>
