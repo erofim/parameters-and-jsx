@@ -6,6 +6,7 @@
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <link rel="stylesheet" href="./style.css">
+  <script src="data.js"></script>
   <title>Аренда яхт</title>
 </head>
 <body>
@@ -13,32 +14,21 @@
 <script type="text/babel">
   const rootElement = document.getElementById('root');
   const root = ReactDOM.createRoot(rootElement);
-  root.render(<App/>);
+  root.render(<App cardData={cardData}/>);
 
-  function App() {
-    const name = 'Катер Meridian 401';
-    const description = 'Яхта 401 длиной 12.5 метров и шириной 4.2 метра';
-
-    const img = 'img/photo-card-1.jpg';
-    const price = 15000;
-
-    const formattedPrice = `${price.toLocaleString()} ₽/час`;
-    const features = [
-      '3 каюты',
-      '4 спальных места',
-      'аудиосистема'
-    ];
-    const featuresList = features.map((feature) => (
+  function App({cardData}) {
+    const formattedPrice = `${cardData.price.toLocaleString()} ₽/час`;
+    const featuresList = cardData.features.map((feature) => (
       <li>{feature}</li>
     ))
     return (
       <section className="rent">
         <ul className="cards">
           <li className="card">
-            <img className="card-img" src={img} width="280" height="140" alt="Белая двухпалубная яхта"/>
+            <img className="card-img" src={cardData.img} width="280" height="140" alt="Белая двухпалубная яхта"/>
             <div className="card-content">
-              <h3 className="card-title">{name}</h3>
-              <p className="card-description">{description}</p>
+              <h3 className="card-title">{cardData.name}</h3>
+              <p className="card-description">{cardData.description}</p>
               <ul className="card-features">
                 {featuresList}
               </ul>
