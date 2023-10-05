@@ -16,16 +16,18 @@
   const root = ReactDOM.createRoot(rootElement);
   root.render(<App cards={cards} topSellers={topSellers}/>);
 
-  function RentHeader() {
+  function RentHeader({isShownByGrid}) {
+    const buttonGridClassName = `card-view-button-grid ${isShownByGrid ? 'active' : ''}`;
+    const buttonListClassName = `card-view-button-list ${isShownByGrid ? '' : 'active'}`;
     return (
       <header>
         <h2>Аренда яхты</h2>
         <ul className="card-view-buttons">
           <li className="card-view-item">
-            <button className="card-view-button-grid active" type="button"></button>
+            <button className={buttonGridClassName} type="button"></button>
           </li>
           <li className="card-view-item">
-            <button className="card-view-button-list" type="button"></button>
+            <button className={buttonListClassName} type="button"></button>
           </li>
         </ul>
       </header>
