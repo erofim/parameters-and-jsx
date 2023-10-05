@@ -16,6 +16,23 @@
   const root = ReactDOM.createRoot(rootElement);
   root.render(<App cards={cards} topSellers={topSellers}/>);
 
+  function RentHeader() {
+    return (
+      <header>
+        <h2>Аренда яхты</h2>
+        <ul className="card-view-buttons">
+          <li className="card-view-item">
+            <button className="card-view-button-grid active" type="button"></button>
+          </li>
+          <li className="card-view-item">
+            <button className="card-view-button-list" type="button"></button>
+          </li>
+        </ul>
+      </header>
+    )
+  }
+
+
   function Card({cardData, isTopSeller}) {
     const formattedPrice = `${cardData.price.toLocaleString()} ₽/час`;
     const featuresList = cardData.features.map((feature) => (
@@ -42,13 +59,14 @@
 
   function App({cards, topSellers}) {
     return (
-
       <section className="rent">
+        <RentHeader/>
         <ul className="cards">
           {cards.map((item) => (<Card cardData={item} isTopSeller={topSellers.includes(item.id)} key={item.id}/>))}
         </ul>
       </section>
-    );
+    )
+      ;
   }
 </script>
 </body>
