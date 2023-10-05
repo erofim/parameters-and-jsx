@@ -58,10 +58,12 @@
   }
 
   function App({cards, topSellers}) {
+    const isShownByGrid = false;
+    const listClassName = `cards ${isShownByGrid ? '' : 'list'}`
     return (
       <section className="rent">
         <RentHeader/>
-        <ul className="cards">
+        <ul className={listClassName}>
           {cards.map((item) => (<Card cardData={item} isTopSeller={topSellers.includes(item.id)} key={item.id}/>))}
         </ul>
       </section>
