@@ -14,7 +14,7 @@
 <script type="text/babel">
   const rootElement = document.getElementById('root');
   const root = ReactDOM.createRoot(rootElement);
-  root.render(<App cards={cards}/>);
+  root.render(<App cards={cards} topSellers={topSellers}/>);
 
   function Card({cardData, isTopSeller}) {
     const formattedPrice = `${cardData.price.toLocaleString()} ₽/час`;
@@ -40,11 +40,12 @@
     );
   }
 
-  function App({cards}) {
+  function App({cards, topSellers}) {
     return (
+
       <section className="rent">
         <ul className="cards">
-          {cards.map((item, i) => (<Card cardData={item} isTopSeller={i === 0} key={item.id}/>))}
+          {cards.map((item) => (<Card cardData={item} isTopSeller={topSellers.includes(item.id)} key={item.id}/>))}
         </ul>
       </section>
     );
