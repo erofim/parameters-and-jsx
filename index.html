@@ -16,13 +16,14 @@
   const root = ReactDOM.createRoot(rootElement);
   root.render(<App cards={cards}/>);
 
-  function Card({cardData}) {
+  function Card({cardData, isTopSeller}) {
     const formattedPrice = `${cardData.price.toLocaleString()} ₽/час`;
     const featuresList = cardData.features.map((feature) => (
       <li>{feature}</li>
     ))
+    const className = `card ${isTopSeller ? 'card-top-seller' : ''}`
     return (
-      <li className="card">
+      <li className={className}>
         <img className="card-img" src={cardData.img} width="280" height="140" alt="Белая двухпалубная яхта"/>
         <div className="card-content">
           <h3 className="card-title">{cardData.name}</h3>
@@ -43,7 +44,7 @@
     return (
       <section className="rent">
         <ul className="cards">
-          {cards.map((item) => (<Card cardData={item} key={item.id}/>))}
+          {cards.map((item, i) => (<Card cardData={item} isTopSeller={i === 0} key={item.id}/>))}
         </ul>
       </section>
     );
